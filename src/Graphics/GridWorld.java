@@ -22,6 +22,18 @@ Flower rose2 = new Flower(Color.GREEN);
 mehworld.add(loc1, beetle);
 mehworld.add(loc2,rose2 );
 mehworld.add(loc3,rose );
+beetle.turn();
+beetle.turn();
+
+for (int i =0; i<10; i++) {
+	for (int a=0; a<10; a++) {
+		Location loc4 = new Location(i,a);	
+		Flower rose3 = new Flower(Color.cyan);	
+		mehworld.add(loc4, rose3);	
+	}
+
+
+}
 	
 	
 	
