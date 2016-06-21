@@ -34,7 +34,7 @@ Cow1.start();
 			playSound("275154__bird-man__moo.wav");
 			Thread.sleep(600);
 			speak("It's time to walk! :D");
-		}
+		}}
 	}
 		//* 2. Count down the minutes, print the current minute then sleep for 60
 		 //seconds using Thread.sleep(int milliseconds).
@@ -46,7 +46,8 @@ Cow1.start();
 		 * your default package. Tell the students (by speaking) it's time to walk.
 		 */
 
-	}
+	
+	
 
 	private void playSound(String fileName) {
 		AudioClip sound = JApplet
