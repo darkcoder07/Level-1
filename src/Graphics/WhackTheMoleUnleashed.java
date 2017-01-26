@@ -98,19 +98,28 @@ public class WhackTheMoleUnleashed implements ActionListener {
 	
 	
 		JButton bpressed = (JButton) e.getSource();
-		if (bpressed == moleplace[r]) {
+		if (bpressed == moleplace[r]&&whacks%2==1) {
 			speak("You whacked that mole so hard.");
 			whacks++;
-		if (bpressed != moleplace[r])	 {
+			int r = new Random().nextInt(7);
+		}
+			else if (bpressed != moleplace[r])	 {
 		  speak("Ye dork.")	;
 		  fails++;
 		}
-		if (bpressed != moleplace[r]&&whacks==2) {
+			else if (bpressed != moleplace[r]&&fails==2) {
 			speak("You loser");
 			fails++;
 		}
-
+			else if (bpressed != moleplace[r]&&fails==3) {
+				
+		speak("You must have had a downward spiral of sadness in your life.");		
+fails++;
 		}
+			else {
+				speak("You lose.");
+			}
+		
 		if (whacks>3) {
 			speak("You win! Yay.");
 		}
