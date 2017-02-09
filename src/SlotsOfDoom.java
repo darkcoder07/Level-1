@@ -58,24 +58,37 @@ public class SlotsOfDoom extends Casino{
 	
 	void payOut() {
 		
-		if (b.getText().equals(1)&&b2.getText().equals(1)&&b3.getText().equals(1)); {
-			setMoney(ibetMoney*2);
+		if (b.getText().equals(1)&&b2.getText().equals(1)&&b3.getText().equals(1)) {
+			setMoney(getMoney()+ibetMoney*2);
 			JOptionPane.showMessageDialog(null,"Nice luck! Your balance is doubled and is now " + money + ".");
+			if (getMoney()<0) {
+				JOptionPane.showMessageDialog(null, "So sad! Your balance is now zero, and you have lost. Please come again to give us money please.");
+			}
 		}
 		 if (b.getText().equals(2)&&b2.getText().equals(2)&&b3.getText().equals(2)) {
-			setMoney(ibetMoney*3);
+			setMoney(getMoney()+ibetMoney*3);
 			JOptionPane.showMessageDialog(null,"Incredible! Your balance is tripled and is now " + money +"!");
+			if (getMoney()<0) {
+				JOptionPane.showMessageDialog(null, "So sad! Your balance is now zero, and you have lost. Please come again to give us money please.");
+			}
 			
 		}
 		else if (b.getText().equals(0)&&b2.getText().equals(0)&&b3.getText().equals(0)) {
-			setMoney(ibetMoney*1.2);
+			setMoney(getMoney()+ibetMoney*1.2);
 			JOptionPane.showMessageDialog(null,"That's pretty good. Your balance is increased by a little and is now " + money + ".");
+			if (getMoney()<0) {
+				JOptionPane.showMessageDialog(null, "So sad! Your balance is now zero, and you have lost. Please come again to give us money please.");
+			}
 			
 		}
 		else {
-			setMoney(getMoney()/2) ;
+			setMoney(getMoney()-ibetMoney/3);
+			
 				
-			JOptionPane.showMessageDialog(null,"Oh no! Your balance got cut in half! Better luck next time? Your balance is now " + money + ".");
+			JOptionPane.showMessageDialog(null,"Oh no! Your balance now got decreased a little more than the amount you betted! Better luck next time? Your balance is now " + money + ".");
+			if (getMoney()<0) {
+				JOptionPane.showMessageDialog(null, "So sad! Your balance is now zero, and you have lost. Please come again to give us money please.");
+			}
 		}
 	}
 

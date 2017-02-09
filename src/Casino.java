@@ -8,6 +8,7 @@ public class Casino {
 		sod.setup();
 		sod.getNums();
 		sod.results();
+		sod.payOut();
 
 	}
 
