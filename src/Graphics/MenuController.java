@@ -10,6 +10,7 @@ public class MenuController implements ActionListener {
 	public MenuController(Menu view, MenuData data) {
       this.view = view;
       this.md = data;
+      view.addListener(this);
       setup();
 	}
 	void setup() {
@@ -24,7 +25,8 @@ public class MenuController implements ActionListener {
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		md.menuCheck(view.getTextField());
+		view.output.setText("Order Taken! Have a great day.");
 		
 	}
 	

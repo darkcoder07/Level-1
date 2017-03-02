@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Menu implements ActionListener {
+public class Menu {
 
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
@@ -35,6 +35,9 @@ JTextField output = new JTextField(10);
 		panel.add(output);
 		panel.add(b);
 		b.setText("Take Order");
+		input.setText("INPUT");
+		output.setText("OUTPUT");
+	
 		
 
 	}
@@ -56,13 +59,13 @@ void setl4(String food) {
 void setl5(String food) {
 	l5.setText(food);
 }
+String getTextField() {
+	return input.getText();
+}
+	
 void addListener(ActionListener controller) {
-	b.addActionListener(this);
+	b.addActionListener(controller);
 }
-@Override
-public void actionPerformed(ActionEvent e) {
-	// TODO Auto-generated method stub
-	System.out.println("merp");
-}
+
 }
 	
