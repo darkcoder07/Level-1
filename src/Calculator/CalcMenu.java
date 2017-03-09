@@ -10,10 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class CalcMenu implements ActionListener {
+public class CalcMenu {
 
 JFrame frame = new JFrame();	
 JPanel panel = new JPanel();
+
 
 JButton num1 = new JButton();
 JButton num2 = new JButton();
@@ -87,30 +88,27 @@ public CalcMenu() {
 		
 }
 
-void addListener() {
-	add.addActionListener(this);
-	subtract.addActionListener(this);
-	multiply.addActionListener(this);
-	divide.addActionListener(this);
-	clear.addActionListener(this);
-	equals.addActionListener(this);
-	num1.addActionListener(this);
-	num2.addActionListener(this);
-	num3.addActionListener(this);
-	num4.addActionListener(this);
-	num5.addActionListener(this);
-	num6.addActionListener(this);
-	num7.addActionListener(this);
-	num8.addActionListener(this);
-	num9.addActionListener(this);
-	num0.addActionListener(this);
+void addListener(ActionListener al) {
+	add.addActionListener(al);
+	subtract.addActionListener(al);
+	multiply.addActionListener(al);
+	divide.addActionListener(al);
+	clear.addActionListener(al);
+	equals.addActionListener(al);
+	num1.addActionListener(al);
+	num2.addActionListener(al);
+	num3.addActionListener(al);
+	num4.addActionListener(al);
+	num5.addActionListener(al);
+	num6.addActionListener(al);
+	num7.addActionListener(al);
+	num8.addActionListener(al);
+	num9.addActionListener(al);
+	num0.addActionListener(al);
 }
 
-@Override
-public void actionPerformed(ActionEvent e) {
-    JOptionPane.showMessageDialog(null,"Merp");
-	
-}
+
+
 
 	
 	
