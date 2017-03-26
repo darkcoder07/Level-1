@@ -22,8 +22,16 @@ int counter = 0;
 	public void actionPerformed(ActionEvent e) {
 
 	    JButton b = (JButton) e.getSource();
+	    
+	   cd.AddADigit(b.getText());
+	   System.out.println(cd.getFirstNumber());
+	   cm.setD1Text(cd.getFirstNumber());
+	   cm.setD2Text(cd.getOperator());
+	   cm.setD3Text(cd.getSecondNumber());
+	   cm.setD4Text(cd.getAnswer() + "");
 	   
-	    JOptionPane.showMessageDialog(null,b.getText());
+	}
+	  /*  When you don't know how to compress code:
 		if (b.getText().equals(cm.num0.getText())) {
 			
 			cm.d1.setText("0");
@@ -158,5 +166,6 @@ int counter = 0;
 		
 		System.out.println(counter);
 	}
+	*/
 
-}
+	}

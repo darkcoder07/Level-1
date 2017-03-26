@@ -107,6 +107,17 @@ void addListener(ActionListener al) {
 	num0.addActionListener(al);
 }
 
+void setD1Text(String input) {
+	d1.setText(input);
+}void setD2Text(String input) {
+	d2.setText(input);
+}
+void setD3Text(String input) {
+	d3.setText(input);
+}
+void setD4Text(String input) {
+	d4.setText(input);
+}
 
 
 
