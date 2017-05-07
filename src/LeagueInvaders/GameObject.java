@@ -8,13 +8,12 @@ int x;
 int y;
 int width;
 int height;
+boolean isAlive = true;
 
 void update() {
-x++;
-y=y+3;
+
 }
 void draw(Graphics g) {
-	g.fillRect(x, y, 100, 100);
 	
 }
 	
