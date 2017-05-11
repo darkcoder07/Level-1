@@ -7,7 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -22,13 +25,25 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font endFontTwo;
 	RocketShip r = new RocketShip(250, 700, 50, 50);
 	ObjectManager om = new ObjectManager();
+	public static BufferedImage alienImg;
+	public static BufferedImage rocketImg;
+	public static BufferedImage bulletImg;
 
 	void updateMenuState() {
 
 	}
 
 	void updateGameState() {
+		om.checkCollision();
 		om.update();
+		om.manageEnemies();
+		if(r.isAlive==false) {
+			currentState=END_STATE;
+			om.reset();
+			r=new RocketShip(250,700,50,50);
+			om.addObject(r);
+		}
+		
 
 	}
 
@@ -52,6 +67,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void drawEndState(Graphics g) {
+		ObjectManager om = new ObjectManager();
 		g.setColor(Color.RED);
 		g.fillRect(0, 0, LeagueInvadersI.width, LeagueInvadersI.height);
 		g.setFont(endFontOne);
@@ -59,7 +75,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawString("Game Over", 100, 100);
 		g.setFont(endFontTwo);
 		g.setColor(Color.DARK_GRAY);
-		g.drawString("Better luck next time? Score:", 100, 200);
+		g.drawString("Better luck next time? Score:" + om.getScore(), 100, 200);
 
 	}
 
@@ -71,6 +87,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		endFontOne = new Font("Arial", Font.BOLD, 48);
 		endFontTwo = new Font("Arial", Font.PLAIN, 20);
 		om.addObject(r);
+		try {
+			alienImg = ImageIO.read(this.getClass().getResourceAsStream("alien.png"));
+			rocketImg = ImageIO.read(this.getClass().getResourceAsStream("rocket.png"));
+			bulletImg = ImageIO.read(this.getClass().getResourceAsStream("bullet (1).png"));
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+
 	}
 
 	void startGame() {

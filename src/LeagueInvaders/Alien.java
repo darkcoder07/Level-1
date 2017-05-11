@@ -2,27 +2,30 @@ package LeagueInvaders;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
-public class Alien extends GameObject{
-int x;
-int y;
-int width;
-int height;
+public class Alien extends GameObject {
+
 int speed;
 
-public Alien(int x, int y, int height, int width) {
-	this.x=x;
-	this.y=y;
-	this.width=width;
-	this.height=height;
-	speed=3;
+
+public Alien(int x, int y, int height, int width,ObjectManager om) {
+	super(x, y, width, height);
+	
+	speed=3 + om.getScore()/100;
 }
 void update() {
- y=y+speed;	
+	super.update();
+	 int r = new Random().nextInt(3)-1;	
+ y=y+speed;
+
+ x=x+r;
+
+ 
+ 
 }
 void draw(Graphics g) {
-	g.setColor(Color.YELLOW);
-	g.fillRect(x, y, width, height);
+	g.drawImage(GamePanel.alienImg, x, y, width, height, null);
 	
 	
 }
